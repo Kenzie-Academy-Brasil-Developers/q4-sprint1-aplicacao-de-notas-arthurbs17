@@ -126,12 +126,12 @@ app.patch(
 
     note.updated_at = new Date(Date.now());
 
-    res.status(200).json({ note });
+    return res.status(200).json({ note });
   }
 );
 
 app.delete(
-  '/users/:cpf/notes/:uuuid',
+  '/users/:cpf/notes/:uuid',
   getUserByCpf,
   checkExistsUuid,
   (req, res) => {
@@ -141,7 +141,7 @@ app.delete(
 
     notes.pop(note);
 
-    res.status(204).json({});
+    return res.status(204).json({});
   }
 );
 
